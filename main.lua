@@ -1,4 +1,9 @@
-package.path = package.path .. ";./lib/?.lua;./vendor/lib/?.lua"
+packageDirs = {
+    "./lib/?.lua",
+    "./vendor/lib/?.lua"
+}
+
+package.path = package.path .. ";" .. table.concat(packageDirs, ';')
 
 fonts = require 'fonts'
 titleScreen = require 'states/title_screen'

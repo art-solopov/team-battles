@@ -30,7 +30,7 @@ function mainMenu:draw()
       local wid = winWidth - 2 * WID_PADDING
       
       if i == self.selected then
-         love.graphics.setColor(0, 100, 100)
+         love.graphics.setColor(200, 100, 100)
       else
          love.graphics.setColor(0, 0, 200)
       end
@@ -41,15 +41,19 @@ function mainMenu:draw()
    end
 end
 
-function mainMenu:keyreleased(key, code)
-   if key == 'return' then
-      menuItem = self.menuItems[self.selected]
-      self["_item_" .. menuItem.name](self)
-   elseif key == 'up' and self.selected > 1 then
-      self.selected = self.selected - 1
-   elseif key == 'down' and self.selected < #self.menuItems then
-      self.selected = self.selected + 1
-   end
+function mainMenu:keypressed(key, code)
+    if key == 'return' then
+        menuItem = self.menuItems[self.selected]
+        self["_item_" .. menuItem.name](self)
+    elseif key == 'up' and self.selected > 1 then
+        self.selected = self.selected - 1
+    elseif key == 'up' then
+        self.selected = #self.menuItems
+    elseif key == 'down' and self.selected < #self.menuItems then
+        self.selected = self.selected + 1
+    elseif key == 'down' then
+        self.selected = 1
+    end
 end
 
 function mainMenu:_item_new_game()
