@@ -1,7 +1,9 @@
 local mainMenu = {}
 
-Gamestate = require 'hump.gamestate'
-fonts = require 'fonts'
+local Gamestate = require 'hump.gamestate'
+local fonts = require 'fonts'
+
+local deckBuilding = require 'states/deck_building'
 
 local WID_PADDING = 200
 local HEIGHT = 60
@@ -11,6 +13,7 @@ local Y_PADDING = 10
 function mainMenu:init()
    self.menuItems = {
       { text="New game", name="new_game" },
+      { text="Deck building", name="deck_building" },
       { text="Quit", name="exit" }
    }
    self.font = fonts.main
@@ -58,6 +61,10 @@ end
 
 function mainMenu:_item_new_game()
    -- TODO implement
+end
+
+function mainMenu:_item_deck_building()
+    Gamestate.switch(deckBuilding)
 end
 
 function mainMenu:_item_exit()

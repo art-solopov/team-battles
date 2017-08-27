@@ -5,10 +5,10 @@ packageDirs = {
 
 package.path = package.path .. ";" .. table.concat(packageDirs, ';')
 
-fonts = require 'fonts'
-titleScreen = require 'states/title_screen'
+local fonts = require 'fonts'
+local titleScreen = require 'states/title_screen'
 
-Gamestate = require 'hump.gamestate'
+local Gamestate = require 'hump.gamestate'
 
 function love.load()
    fonts:loadAll()

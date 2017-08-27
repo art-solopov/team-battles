@@ -1,8 +1,8 @@
 local titleScreen = {}
 
-Gamestate = require 'hump.gamestate'
-fonts = require 'fonts'
-mainMenu = require 'states/main_menu'
+local Gamestate = require 'hump.gamestate'
+local fonts = require 'fonts'
+local mainMenu = require 'states/main_menu'
 
 function titleScreen:draw()
    local winWidth, winHeight = love.graphics.getDimensions()
